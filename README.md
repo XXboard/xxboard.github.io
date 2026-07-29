@@ -1,2 +1,0 @@
-# xxboard.github.io
-xxboard
