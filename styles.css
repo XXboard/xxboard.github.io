@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --bg: #07111f;
   --panel: rgba(255, 255, 255, 0.045);
   --line: rgba(255, 255, 255, 0.11);
@@ -1005,6 +1005,37 @@ h1 {
   margin-top: 8px;
 }
 
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.why-grid article {
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: rgba(2, 6, 23, 0.35);
+  padding: 22px;
+}
+
+.why-grid strong {
+  color: var(--cyan);
+  font-size: 28px;
+}
+
+.why-grid h3 {
+  margin: 18px 0 10px;
+  font-size: 20px;
+  letter-spacing: -0.035em;
+}
+
+.why-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
 .contact-methods {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -1054,12 +1085,25 @@ h1 {
 }
 
 @media (max-width: 900px) {
+  .nav {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 14px 0;
+  }
+
   .nav-links {
-    display: none;
+    order: 3;
+    display: flex;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    gap: 14px 20px;
+    padding-top: 4px;
+    font-size: 13px;
   }
 
   .language-select {
-    display: none;
+    display: flex;
+    margin-left: auto;
   }
 
   .hero,
@@ -1097,6 +1141,7 @@ h1 {
   .pricing-steps,
   .service-grid,
   .pricing-table,
+  .why-grid,
   .contact-methods {
     grid-template-columns: 1fr;
   }
@@ -1112,10 +1157,27 @@ h1 {
 
   .nav {
     min-height: 68px;
+    gap: 12px;
   }
 
   .brand {
     font-size: 18px;
+  }
+
+  .brand-mark {
+    min-width: 116px;
+    height: 38px;
+    padding: 0 14px;
+  }
+
+  .nav-links {
+    gap: 12px 16px;
+    font-size: 12px;
+  }
+
+  .language-select {
+    max-width: 116px;
+    font-size: 12px;
   }
 
   .board-grid,
