@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>电子电弧打火机 | XXboard</title>
+<meta name="description" content="开源电子电弧打火机项目。V1.1 为正在验证中的 PCB 设计预览。" />
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+<header class="site-header">
+<nav class="nav">
+<a class="brand" href="../index.html" aria-label="XXboard home">
+<span class="brand-mark">
+<span class="brand-word">XXboard</span>
+</span>
+</a>
+<div class="nav-links" aria-label="Main navigation">
+<a href="../open-hardware.html">开源硬件</a>
+<a href="../custom-projects.html">定制项目</a>
+<a href="../forum.html">社区</a>
+<a href="../contact.html">联系</a>
+</div>
+<select class="language-select" aria-label="Language" onchange="if(this.value) window.location.href=this.value">
+<option value="../electronic-lighter.html">English</option>
+<option value="electronic-lighter.html" selected>Chinese</option>
+<option value="../ja/electronic-lighter.html">Japanese</option>
+<option value="../ko/electronic-lighter.html">Korean</option>
+<option value="../es/electronic-lighter.html">Spanish</option>
+<option value="../fr/electronic-lighter.html">French</option>
+<option value="../de/electronic-lighter.html">German</option>
+</select>
+</nav>
+</header>
+<main>
+<section class="section detail-section lighter-hero">
+<div>
+<p class="section-kicker">高压原型</p>
+<h1>电子电弧打火机</h1>
+<p class="hero-text">开源电子电弧打火机项目。V1.1 为正在验证中的 PCB 设计预览。</p>
+<div class="tags">
+<b>V1.1</b>
+<b>高压</b>
+<b>PCB</b>
+<b>原型</b>
+</div>
+</div>
+<img src="../images/projects/electronic-lighter/v11-pcb-layout.png" alt="V1.1 PCB 布局" />
+</section>
+<section class="section detail-section">
+<div class="detail-grid">
+<article>
+<h3>原型 / 验证中</h3>
+<p>V1.1 现以设计预览形式发布。高压开关级已由原来的 60V MOS 方案升级为 100V MOS 方案；电气验证与可靠性测试仍在进行。</p>
+</article>
+<article>
+<h3>100V MOSFET 修订</h3>
+<p>高压开关 MOSFET 已由原来的 60V 等级升级为 100V 方案，以提高耐压余量。</p>
+</article>
+<article>
+<h3>栅极驱动与保护</h3>
+<p>MOSFET 驱动、钳位回路、开关波形、温升及元件应力仍属于原型验证内容。</p>
+</article>
+<article>
+<h3>开源文件</h3>
+<p>完成 V1.1 验证资料整理后，将补充原理图、PCB 源文件、BOM、Gerber、固件、测试记录和发布文件。</p>
+</article>
+<article>
+<h3>安全提示</h3>
+<p>这是高压电路，仅限有经验的开发者使用。没有合适的绝缘、测试设备和消防措施时，请勿制作、测试或操作。</p>
+</article>
+</div>
+</section>
+<section class="section download-actions">
+<div class="hero-actions"><a class="button primary" href="https://github.com/XXboard/Electronic-Arc-Lighter/tree/main">VIEW HARDWARE FILES</a><a class="button secondary" href="https://github.com/XXboard/Electronic-Arc-Lighter/tree/main">VIEW FIRMWARE SOURCE</a></div>
+</section>
+</main>
+<footer class="footer">
+<p>© 2026 XXboard。电子硬件开发与开源硬件。</p>
+<div>
+<a href="../open-hardware.html">开源硬件</a>
+<a href="../custom-projects.html">定制项目</a>
+<a href="../forum.html">社区</a>
+<a href="../contact.html">联系</a>
+</div>
+</footer>
+</body>
+</html>

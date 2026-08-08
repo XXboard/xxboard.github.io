@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>電子アークライター | XXboard</title>
+<meta name="description" content="オープンハードウェアの電子アークライタープロジェクト。V1.1 は試作検証中の PCB 設計プレビューです。" />
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+<header class="site-header">
+<nav class="nav">
+<a class="brand" href="../index.html" aria-label="XXboard home">
+<span class="brand-mark">
+<span class="brand-word">XXboard</span>
+</span>
+</a>
+<div class="nav-links" aria-label="Main navigation">
+<a href="../open-hardware.html">オープンハードウェア</a>
+<a href="../custom-projects.html">カスタムプロジェクト</a>
+<a href="../forum.html">コミュニティ</a>
+<a href="../contact.html">連絡先</a>
+</div>
+<select class="language-select" aria-label="Language" onchange="if(this.value) window.location.href=this.value">
+<option value="../electronic-lighter.html">English</option>
+<option value="../zh/electronic-lighter.html">Chinese</option>
+<option value="electronic-lighter.html" selected>Japanese</option>
+<option value="../ko/electronic-lighter.html">Korean</option>
+<option value="../es/electronic-lighter.html">Spanish</option>
+<option value="../fr/electronic-lighter.html">French</option>
+<option value="../de/electronic-lighter.html">German</option>
+</select>
+</nav>
+</header>
+<main>
+<section class="section detail-section lighter-hero">
+<div>
+<p class="section-kicker">高電圧プロトタイプ</p>
+<h1>電子アークライター</h1>
+<p class="hero-text">オープンハードウェアの電子アークライタープロジェクト。V1.1 は試作検証中の PCB 設計プレビューです。</p>
+<div class="tags">
+<b>V1.1</b>
+<b>高電圧</b>
+<b>PCB</b>
+<b>試作</b>
+</div>
+</div>
+<img src="../images/projects/electronic-lighter/v11-pcb-layout.png" alt="V1.1 PCB レイアウト" />
+</section>
+<section class="section detail-section">
+<div class="detail-grid">
+<article>
+<h3>試作 / 検証中</h3>
+<p>V1.1 は設計プレビューとして公開しています。高電圧スイッチング段は従来の 60 V MOS から 100 V MOS の選択肢へ更新しました。電気的検証と信頼性試験は継続中です。</p>
+</article>
+<article>
+<h3>100 V MOSFET 改訂</h3>
+<p>高電圧スイッチング MOSFET を 60 V クラスから 100 V の選択肢へ変更し、耐圧マージンを高めました。</p>
+</article>
+<article>
+<h3>ゲート駆動と保護</h3>
+<p>MOSFET 駆動、クランプ経路、スイッチング波形、温度上昇、部品ストレスは現在も試作検証の対象です。</p>
+</article>
+<article>
+<h3>オープンソースファイル</h3>
+<p>V1.1 の検証資料を整理後、回路図、PCB ソース、BOM、Gerber、ファームウェア、試験記録を追加します。</p>
+</article>
+<article>
+<h3>安全上の注意</h3>
+<p>これは高電圧回路です。経験のある開発者のみを対象とします。適切な絶縁、測定機器、火災対策なしで製作・試験・操作しないでください。</p>
+</article>
+</div>
+</section>
+<section class="section download-actions">
+<div class="hero-actions"><a class="button primary" href="https://github.com/XXboard/Electronic-Arc-Lighter/tree/main">VIEW HARDWARE FILES</a><a class="button secondary" href="https://github.com/XXboard/Electronic-Arc-Lighter/tree/main">VIEW FIRMWARE SOURCE</a></div>
+</section>
+</main>
+<footer class="footer">
+<p>© 2026 XXboard。電子ハードウェア開発とオープンハードウェア。</p>
+<div>
+<a href="../open-hardware.html">オープンハードウェア</a>
+<a href="../custom-projects.html">カスタムプロジェクト</a>
+<a href="../forum.html">コミュニティ</a>
+<a href="../contact.html">連絡先</a>
+</div>
+</footer>
+</body>
+</html>

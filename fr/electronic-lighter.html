@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Allume-feu à arc électronique | XXboard</title>
+<meta name="description" content="Projet open hardware d'allume-feu à arc électronique. V1.1 est un aperçu de la conception PCB en cours de validation." />
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+<header class="site-header">
+<nav class="nav">
+<a class="brand" href="../index.html" aria-label="XXboard home">
+<span class="brand-mark">
+<span class="brand-word">XXboard</span>
+</span>
+</a>
+<div class="nav-links" aria-label="Main navigation">
+<a href="../open-hardware.html">Matériel ouvert</a>
+<a href="../custom-projects.html">Projets sur mesure</a>
+<a href="../forum.html">Communauté</a>
+<a href="../contact.html">Contact</a>
+</div>
+<select class="language-select" aria-label="Language" onchange="if(this.value) window.location.href=this.value">
+<option value="../electronic-lighter.html">English</option>
+<option value="../zh/electronic-lighter.html">Chinese</option>
+<option value="../ja/electronic-lighter.html">Japanese</option>
+<option value="../ko/electronic-lighter.html">Korean</option>
+<option value="../es/electronic-lighter.html">Spanish</option>
+<option value="electronic-lighter.html" selected>French</option>
+<option value="../de/electronic-lighter.html">German</option>
+</select>
+</nav>
+</header>
+<main>
+<section class="section detail-section lighter-hero">
+<div>
+<p class="section-kicker">Prototype haute tension</p>
+<h1>Allume-feu à arc électronique</h1>
+<p class="hero-text">Projet open hardware d'allume-feu à arc électronique. V1.1 est un aperçu de la conception PCB en cours de validation.</p>
+<div class="tags">
+<b>V1.1</b>
+<b>Haute tension</b>
+<b>PCB</b>
+<b>Prototype</b>
+</div>
+</div>
+<img src="../images/projects/electronic-lighter/v11-pcb-layout.png" alt="Implantation PCB V1.1" />
+</section>
+<section class="section detail-section">
+<div class="detail-grid">
+<article>
+<h3>Prototype / validation en cours</h3>
+<p>V1.1 est publiée comme aperçu de conception. L'étage de commutation haute tension est passé d'une option MOS 60 V à une option 100 V ; la validation électrique et les essais de fiabilité sont en cours.</p>
+</article>
+<article>
+<h3>Révision MOSFET 100 V</h3>
+<p>Le MOSFET de commutation haute tension est passé de la classe 60 V à une option 100 V afin d'augmenter la marge de tension.</p>
+</article>
+<article>
+<h3>Commande de grille et protection</h3>
+<p>La commande du MOSFET, le chemin d'écrêtage, la forme d'onde, le comportement thermique et les contraintes des composants restent en validation.</p>
+</article>
+<article>
+<h3>Fichiers open source</h3>
+<p>Le schéma, la source PCB, la BOM, les Gerber, le firmware et les notes de test seront ajoutés après l'organisation du dossier de validation V1.1.</p>
+</article>
+<article>
+<h3>Avertissement de sécurité</h3>
+<p>C'est un circuit haute tension réservé aux développeurs expérimentés. Ne le construisez, ne le testez et ne l'utilisez pas sans isolation, instruments de mesure et mesures anti-incendie adaptés.</p>
+</article>
+</div>
+</section>
+<section class="section download-actions">
+<div class="hero-actions"><a class="button primary" href="https://github.com/XXboard/Electronic-Arc-Lighter/tree/main">VIEW HARDWARE FILES</a><a class="button secondary" href="https://github.com/XXboard/Electronic-Arc-Lighter/tree/main">VIEW FIRMWARE SOURCE</a></div>
+</section>
+</main>
+<footer class="footer">
+<p>© 2026 XXboard. Développement électronique et matériel ouvert.</p>
+<div>
+<a href="../open-hardware.html">Matériel ouvert</a>
+<a href="../custom-projects.html">Projets sur mesure</a>
+<a href="../forum.html">Communauté</a>
+<a href="../contact.html">Contact</a>
+</div>
+</footer>
+</body>
+</html>

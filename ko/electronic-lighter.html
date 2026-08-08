@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>전자 아크 라이터 | XXboard</title>
+<meta name="description" content="오픈 하드웨어 전자 아크 라이터 프로젝트입니다. V1.1은 프로토타입 검증 중인 PCB 설계 미리보기입니다." />
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+<header class="site-header">
+<nav class="nav">
+<a class="brand" href="../index.html" aria-label="XXboard home">
+<span class="brand-mark">
+<span class="brand-word">XXboard</span>
+</span>
+</a>
+<div class="nav-links" aria-label="Main navigation">
+<a href="../open-hardware.html">오픈 하드웨어</a>
+<a href="../custom-projects.html">맞춤 프로젝트</a>
+<a href="../forum.html">커뮤니티</a>
+<a href="../contact.html">문의</a>
+</div>
+<select class="language-select" aria-label="Language" onchange="if(this.value) window.location.href=this.value">
+<option value="../electronic-lighter.html">English</option>
+<option value="../zh/electronic-lighter.html">Chinese</option>
+<option value="../ja/electronic-lighter.html">Japanese</option>
+<option value="electronic-lighter.html" selected>Korean</option>
+<option value="../es/electronic-lighter.html">Spanish</option>
+<option value="../fr/electronic-lighter.html">French</option>
+<option value="../de/electronic-lighter.html">German</option>
+</select>
+</nav>
+</header>
+<main>
+<section class="section detail-section lighter-hero">
+<div>
+<p class="section-kicker">고전압 프로토타입</p>
+<h1>전자 아크 라이터</h1>
+<p class="hero-text">오픈 하드웨어 전자 아크 라이터 프로젝트입니다. V1.1은 프로토타입 검증 중인 PCB 설계 미리보기입니다.</p>
+<div class="tags">
+<b>V1.1</b>
+<b>고전압</b>
+<b>PCB</b>
+<b>프로토타입</b>
+</div>
+</div>
+<img src="../images/projects/electronic-lighter/v11-pcb-layout.png" alt="V1.1 PCB 레이아웃" />
+</section>
+<section class="section detail-section">
+<div class="detail-grid">
+<article>
+<h3>프로토타입 / 검증 중</h3>
+<p>V1.1은 설계 미리보기로 공개됩니다. 고전압 스위칭 단계는 기존 60V MOS에서 100V MOS 옵션으로 변경되었으며, 전기적 검증과 신뢰성 시험은 진행 중입니다.</p>
+</article>
+<article>
+<h3>100V MOSFET 변경</h3>
+<p>고전압 스위칭 MOSFET을 60V 등급에서 100V 옵션으로 변경하여 전압 여유를 높였습니다.</p>
+</article>
+<article>
+<h3>게이트 구동 및 보호</h3>
+<p>MOSFET 구동, 클램프 경로, 스위칭 파형, 발열, 부품 스트레스는 계속해서 프로토타입 검증 대상입니다.</p>
+</article>
+<article>
+<h3>오픈 소스 파일</h3>
+<p>V1.1 검증 자료를 정리한 뒤 회로도, PCB 소스, BOM, Gerber, 펌웨어 및 시험 기록을 추가합니다.</p>
+</article>
+<article>
+<h3>안전 안내</h3>
+<p>이 제품은 고전압 회로입니다. 경험 있는 개발자만 사용해야 합니다. 적절한 절연, 측정 장비 및 화재 안전 조치 없이 제작·시험·작동하지 마십시오.</p>
+</article>
+</div>
+</section>
+<section class="section download-actions">
+<div class="hero-actions"><a class="button primary" href="https://github.com/XXboard/Electronic-Arc-Lighter/tree/main">VIEW HARDWARE FILES</a><a class="button secondary" href="https://github.com/XXboard/Electronic-Arc-Lighter/tree/main">VIEW FIRMWARE SOURCE</a></div>
+</section>
+</main>
+<footer class="footer">
+<p>© 2026 XXboard. 전자 하드웨어 개발 및 오픈 하드웨어.</p>
+<div>
+<a href="../open-hardware.html">오픈 하드웨어</a>
+<a href="../custom-projects.html">맞춤 프로젝트</a>
+<a href="../forum.html">커뮤니티</a>
+<a href="../contact.html">문의</a>
+</div>
+</footer>
+</body>
+</html>
