@@ -1,0 +1,116 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LT8918 LVDS to MIPI DSI Bridge Board | Open Hardware | XXboard</title>
+<meta name="description" content="Open-hardware LT8918 display bridge converting dual-channel LVDS input to four-lane MIPI DSI with N76E003 control, LCD power and backlight management.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+<nav class="nav">
+<a class="brand" href="index.html">
+<span class="brand-mark">
+<span class="brand-word">XXboard</span>
+</span>
+</a>
+<div class="nav-links">
+<a href="open-hardware.html">Open Hardware</a>
+<a href="custom-projects.html">Custom Projects</a>
+<a href="forum.html">Community</a>
+<a href="contact.html">Contact</a>
+</div>
+<select class="language-select" onchange="if(this.value)location.href=this.value">
+<option selected>English</option>
+<option value="zh/lt8918-lvds-mipi-bridge.html">Chinese</option>
+<option value="ja/lt8918-lvds-mipi-bridge.html">Japanese</option>
+<option value="ko/lt8918-lvds-mipi-bridge.html">Korean</option>
+<option value="es/lt8918-lvds-mipi-bridge.html">Spanish</option>
+<option value="fr/lt8918-lvds-mipi-bridge.html">French</option>
+<option value="de/lt8918-lvds-mipi-bridge.html">German</option>
+</select>
+</nav>
+</header>
+<main>
+<section class="section detail-section lighter-hero">
+<div>
+<p class="section-kicker">Display Interface Bridge</p>
+<h1>LT8918 LVDS to MIPI DSI Bridge Board</h1>
+<p class="hero-text">An open-hardware video adapter that accepts dual-channel LVDS and drives a four-lane MIPI DSI display, with on-board configuration and backlight control.</p>
+<div class="tags">
+<b>LT8918</b>
+<b>Dual-Channel LVDS</b>
+<b>4-Lane MIPI DSI</b>
+<b>N76E003</b>
+</div>
+</div>
+<img class="video-bridge-detail-photo" src="images/projects/lt8918-lvds-mipi-bridge/pcb-layout.png" alt="LT8918 LVDS to MIPI DSI bridge PCB layout">
+</section>
+<section class="section detail-section">
+<div class="detail-grid">
+<article>
+<h3>Dual-channel LVDS input</h3>
+<p>A 30-pin connector carries two LVDS links with four data pairs and one clock pair per link.</p>
+</article>
+<article>
+<h3>Four-lane MIPI DSI output</h3>
+<p>The LT8918 bridge drives four MIPI DSI data lanes plus a differential clock through the 40-pin LCD connector.</p>
+</article>
+<article>
+<h3>N76E003 controller</h3>
+<p>The on-board MCU manages LT8918 I²C configuration, reset sequencing, panel control and operating mode.</p>
+</article>
+<article>
+<h3>Backlight management</h3>
+<p>RT9293B circuitry, LED enable and PWM signals provide panel-backlight power and brightness control.</p>
+</article>
+<article>
+<h3>Power system</h3>
+<p>The board includes 12V input, panel power, 3.3V regulation and dedicated LT8918 supply rails.</p>
+</article>
+<article>
+<h3>Development access</h3>
+<p>UART, SWIM, I²C, reset, test points and expansion headers assist firmware bring-up and display integration.</p>
+</article>
+<article>
+<h3>Production package</h3>
+<p>OrCAD sources, PCB files, BOM, placement coordinates, assembly drawing, Gerber and NC drill files are available.</p>
+</article>
+<article>
+<h3>Project status</h3>
+<p>The final ECO import completed without errors. Display compatibility, timing presets and firmware versions should be documented per target panel.</p>
+</article>
+</div>
+</section>
+<section class="section">
+<div class="section-heading">
+<p class="section-kicker">PCB Layout</p>
+<h2>LVDS input and MIPI display bridge</h2>
+</div>
+<div class="project-gallery">
+<figure>
+<img src="images/projects/lt8918-lvds-mipi-bridge/pcb-layout.png" alt="LT8918 bridge component placement and routing">
+<figcaption>Final V1.0 component placement, power sections and high-speed routing</figcaption>
+</figure>
+</div>
+</section>
+<section class="section download-actions">
+<div class="hero-actions">
+<a class="button primary" href="https://github.com/XXboard/LT8918-LVDS-to-MIPI-DSI-Bridge-Board/tree/main/Hardware">VIEW HARDWARE FILES</a>
+<a class="button secondary" href="https://github.com/XXboard/LT8918-LVDS-to-MIPI-DSI-Bridge-Board/tree/main/Firmware">VIEW FIRMWARE SOURCE</a>
+</div>
+</section>
+</main>
+<footer class="footer">
+<p>© 2026 XXboard. Electronic hardware development and open hardware.</p>
+<div>
+<a href="open-hardware.html">Open Hardware</a>
+<a href="custom-projects.html">Custom Projects</a>
+<a href="forum.html">Community</a>
+<a href="contact.html">Contact</a>
+</div>
+</footer>
+</body>
+</html>
+

@@ -1,0 +1,97 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LT8918 LVDS 转 MIPI DSI 桥接板 | 开源硬件 | XXboard</title>
+<meta name="description" content="将双通道 LVDS 输入转换为四通道 MIPI DSI，集成 N76E003、LCD 电源和背光控制的 LT8918 开源桥接板。">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+<nav class="nav">
+<a class="brand" href="index.html">
+<span class="brand-mark">
+<span class="brand-word">XXboard</span>
+</span>
+</a>
+<div class="nav-links">
+<a href="open-hardware.html">开源硬件</a>
+<a href="custom-projects.html">定制项目</a>
+<a href="forum.html">社区</a>
+<a href="contact.html">联系</a>
+</div>
+</nav>
+</header>
+<main>
+<section class="section detail-section lighter-hero">
+<div>
+<p class="section-kicker">显示接口桥接</p>
+<h1>LT8918 LVDS 转 MIPI DSI 桥接板</h1>
+<p class="hero-text">接收双通道 LVDS 并驱动四通道 MIPI DSI 屏幕，同时集成配置、屏幕电源和背光控制。</p>
+<div class="tags">
+<b>LT8918</b>
+<b>双通道 LVDS</b>
+<b>4-Lane MIPI DSI</b>
+<b>N76E003</b>
+</div>
+</div>
+<img class="video-bridge-detail-photo" src="../images/projects/lt8918-lvds-mipi-bridge/pcb-layout.png" alt="LT8918 LVDS 转 MIPI DSI PCB 布局">
+</section>
+<section class="section detail-section">
+<div class="detail-grid">
+<article>
+<h3>双通道 LVDS 输入</h3>
+<p>30 针接口提供两组 LVDS，每组包含四对数据和一对时钟。</p>
+</article>
+<article>
+<h3>四通道 MIPI DSI 输出</h3>
+<p>LT8918 通过 40 针 LCD 接口输出四对 MIPI 数据和一对差分时钟。</p>
+</article>
+<article>
+<h3>N76E003 控制器</h3>
+<p>MCU 负责 LT8918 I²C 配置、复位时序、屏幕控制和工作模式。</p>
+</article>
+<article>
+<h3>背光控制</h3>
+<p>RT9293B、LED 使能和 PWM 信号提供背光电源与亮度调节。</p>
+</article>
+<article>
+<h3>电源系统</h3>
+<p>包含 12V 输入、面板电源、3.3V 稳压和 LT8918 专用电源。</p>
+</article>
+<article>
+<h3>开发接口</h3>
+<p>提供 UART、SWIM、I²C、复位、测试点和扩展排针。</p>
+</article>
+<article>
+<h3>生产资料</h3>
+<p>包含 OrCAD、PCB、BOM、坐标、贴片图、Gerber 和钻孔文件。</p>
+</article>
+<article>
+<h3>项目状态</h3>
+<p>最终 ECO 导入没有错误；不同屏幕的时序参数和固件版本仍需分别记录。</p>
+</article>
+</div>
+</section>
+<section class="section">
+<div class="project-gallery">
+<figure>
+<img src="../images/projects/lt8918-lvds-mipi-bridge/pcb-layout.png" alt="LT8918 桥接板元件和走线">
+<figcaption>V1.0 元件布局、电源区域和高速走线</figcaption>
+</figure>
+</div>
+</section>
+<section class="section download-actions">
+<div class="hero-actions">
+<a class="button primary" href="https://github.com/XXboard/LT8918-LVDS-to-MIPI-DSI-Bridge-Board/tree/main/Hardware">VIEW HARDWARE FILES</a>
+<a class="button secondary" href="https://github.com/XXboard/LT8918-LVDS-to-MIPI-DSI-Bridge-Board/tree/main/Firmware">VIEW FIRMWARE SOURCE</a>
+</div>
+</section>
+</main>
+<footer class="footer">
+<p>© 2026 XXboard。电子硬件开发与开源硬件。</p>
+</footer>
+</body>
+</html>
+

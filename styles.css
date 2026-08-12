@@ -1367,6 +1367,65 @@ h1 {
   background: #f2f6f8;
 }
 
+.sata-vault-photo {
+  object-fit: cover;
+  object-position: center;
+  background: #f2f6f8;
+}
+
+.stm32-board-photo {
+  object-fit: cover;
+  object-position: center;
+  background: #062d22;
+}
+
+.stm32-detail-photo {
+  width: 100%;
+  max-height: 620px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mosquito-killer-photo,
+.mosquito-detail-photo {
+  object-fit: contain;
+  background: #050807;
+}
+
+.hifi-project-photo,
+.hifi-detail-photo {
+  object-fit: contain;
+  background: #061009;
+}
+
+.video-bridge-photo,
+.video-bridge-detail-photo {
+  object-fit: contain;
+  background: #030903;
+}
+
+.safety-warning {
+  border: 1px solid rgba(255, 88, 88, 0.55);
+  background: rgba(120, 18, 18, 0.22);
+  border-radius: 18px;
+  padding: 22px 24px;
+}
+
+.safety-warning h2,
+.safety-warning h3 {
+  color: #ff9a9a;
+}
+
+.sata-detail-photo {
+  max-height: 620px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.sata-gallery img {
+  object-position: center;
+}
+
 .radar-detail-photo {
   width: 100%;
   max-height: 560px;

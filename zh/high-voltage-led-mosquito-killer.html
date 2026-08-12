@@ -1,0 +1,122 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>高压 LED 灭蚊器 | 开源硬件 | XXboard</title>
+<meta name="description" content="使用六颗蓝色诱蚊 LED、变压器高压电网电源、Micro-USB 供电和单层 PCB 的开源硬件灭蚊器。">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+<nav class="nav">
+<a class="brand" href="index.html">
+<span class="brand-mark">
+<span class="brand-word">XXboard</span>
+</span>
+</a>
+<div class="nav-links">
+<a href="open-hardware.html">开源硬件</a>
+<a href="custom-projects.html">定制项目</a>
+<a href="forum.html">社区</a>
+<a href="contact.html">联系</a>
+</div>
+<select class="language-select" aria-label="语言" onchange="if(this.value)location.href=this.value">
+<option value="../high-voltage-led-mosquito-killer.html">English</option>
+<option selected>中文</option>
+<option value="../ja/high-voltage-led-mosquito-killer.html">日本語</option>
+<option value="../ko/high-voltage-led-mosquito-killer.html">한국어</option>
+<option value="../es/high-voltage-led-mosquito-killer.html">Español</option>
+<option value="../fr/high-voltage-led-mosquito-killer.html">Français</option>
+<option value="../de/high-voltage-led-mosquito-killer.html">Deutsch</option>
+</select>
+</nav>
+</header>
+<main>
+<section class="section detail-section lighter-hero">
+<div>
+<p class="section-kicker">电子灭蚊</p>
+<h1>高压 LED 灭蚊器</h1>
+<p class="hero-text">一款结合蓝色 LED 诱蚊光源和变压器驱动高压电网电源的开源硬件灭蚊器。</p>
+<div class="tags">
+<b>6 颗蓝色 LED</b>
+<b>高压电网</b>
+<b>Micro-USB 5V</b>
+<b>单层 PCB</b>
+</div>
+</div>
+<img class="mosquito-detail-photo" src="../images/projects/high-voltage-led-mosquito-killer/pcb-layout.png" alt="高压 LED 灭蚊器 PCB 布局">
+</section>
+<section class="section detail-section">
+<div class="detail-grid">
+<article>
+<h3>蓝色 LED 诱蚊光源</h3>
+<p>六颗直插蓝色 LED 为灭蚊器外壳内部提供诱蚊光源。</p>
+</article>
+<article>
+<h3>变压器高压电路</h3>
+<p>D882 三极管驱动升压变压器，后级使用高压二极管和电容网络为防护电网供电。</p>
+</article>
+<article>
+<h3>供电方式</h3>
+<p>设计包含 Micro-USB 5V 输入和独立的 7.4V 电池网络，最终接线和充电方式必须以公开原理图为准。</p>
+</article>
+<article>
+<h3>高压元件</h3>
+<p>BOM 包含 2 kV、3 kV 电容和 RFC3K-3000V 整流二极管。</p>
+</article>
+<article>
+<h3>完整生产资料</h3>
+<p>现有资料包括 OrCAD 原理图、Allegro PCB、BOM、Gerber、钻孔文件和板框 DXF。</p>
+</article>
+<article>
+<h3>PCB 检查结果</h3>
+<p>最终 mosquito_killerv4 PCB 报告记录为零 DRC 错误和零数据库错误。</p>
+</article>
+<article>
+<h3>板材要求</h3>
+<p>生产说明要求使用 1.0 mm 单层 FR4，表面采用 OSP 或喷锡处理。</p>
+</article>
+<article>
+<h3>项目状态</h3>
+<p>硬件设计已经完成；输出电压、诱蚊效果和外壳安全性仍需完成公开实测记录。</p>
+</article>
+</div>
+</section>
+<section class="section detail-section">
+<article class="safety-warning">
+<p class="section-kicker">安全警告</p>
+<h2>电路包含危险高压</h2>
+<p>断电后高压电容仍可能残留危险电压。仅限具有高压电子经验的人员制作和调试；必须使用完整绝缘、防手指触碰的外壳，接触前先对高压电容进行安全放电，并远离儿童、宠物、潮湿环境和易燃物。</p>
+</article>
+</section>
+<section class="section">
+<div class="section-heading">
+<p class="section-kicker">PCB 布局</p>
+<h2>最终单层电路板设计</h2>
+</div>
+<div class="project-gallery">
+<figure>
+<img src="../images/projects/high-voltage-led-mosquito-killer/pcb-layout.png" alt="灭蚊器单层 PCB 走线与板框">
+<figcaption>最终走线、高压区域和机械板框</figcaption>
+</figure>
+</div>
+</section>
+<section class="section download-actions">
+<div class="hero-actions">
+<a class="button primary" href="https://github.com/XXboard/High-Voltage-LED-Mosquito-Killer/tree/main/Hardware">查看硬件文件</a>
+</div>
+</section>
+</main>
+<footer class="footer">
+<p>© 2026 XXboard。电子硬件开发与开源硬件。</p>
+<div>
+<a href="open-hardware.html">开源硬件</a>
+<a href="custom-projects.html">定制项目</a>
+<a href="forum.html">社区</a>
+<a href="contact.html">联系</a>
+</div>
+</footer>
+</body>
+</html>
+

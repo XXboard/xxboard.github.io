@@ -1,0 +1,121 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>USB Hi-Fi 192K 音频接口 | 开源硬件 | XXboard</title>
+<meta name="description" content="集成 SA9227、AK4430 DAC、AK5720 ADC、MEMS 麦克风、模拟输出和媒体按键的开源 USB Hi-Fi 音频接口。">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+<nav class="nav">
+<a class="brand" href="index.html">
+<span class="brand-mark">
+<span class="brand-word">XXboard</span>
+</span>
+</a>
+<div class="nav-links">
+<a href="open-hardware.html">开源硬件</a>
+<a href="custom-projects.html">定制项目</a>
+<a href="forum.html">社区</a>
+<a href="contact.html">联系</a>
+</div>
+<select class="language-select" onchange="if(this.value)location.href=this.value">
+<option value="../usb-hifi-192k-audio-interface.html">English</option>
+<option selected>中文</option>
+<option value="../ja/usb-hifi-192k-audio-interface.html">日本語</option>
+<option value="../ko/usb-hifi-192k-audio-interface.html">한국어</option>
+<option value="../es/usb-hifi-192k-audio-interface.html">Español</option>
+<option value="../fr/usb-hifi-192k-audio-interface.html">Français</option>
+<option value="../de/usb-hifi-192k-audio-interface.html">Deutsch</option>
+</select>
+</nav>
+</header>
+<main>
+<section class="section detail-section lighter-hero">
+<div>
+<p class="section-kicker">USB 音频平台</p>
+<h1>USB Hi-Fi 192K 音频接口</h1>
+<p class="hero-text">一款集成 USB 音频控制器、立体声 DAC、立体声 ADC、MEMS 麦克风和模拟音频输出的开源硬件平台。</p>
+<div class="tags">
+<b>SA9227</b>
+<b>AK4430 DAC</b>
+<b>AK5720 ADC</b>
+<b>192 kHz 设计</b>
+</div>
+</div>
+<img class="hifi-detail-photo" src="../images/projects/usb-hifi-192k-audio-interface/pcb-layout.png" alt="USB Hi-Fi 192K 音频接口 PCB 布局">
+</section>
+<section class="section detail-section">
+<div class="detail-grid">
+<article>
+<h3>SA9227 USB 音频控制器</h3>
+<p>专用 USB 音频控制器负责 USB 连接和 I²S 音频数据。</p>
+</article>
+<article>
+<h3>立体声音频输出</h3>
+<p>AK4430 DAC 将数字音频转换为左右声道模拟信号。</p>
+</article>
+<article>
+<h3>立体声音频采集</h3>
+<p>AK5720 ADC 用于录音和模拟音频输入。</p>
+</article>
+<article>
+<h3>板载 MEMS 麦克风</h3>
+<p>SPU0414HR5H 可用于语音输入和录音实验。</p>
+</article>
+<article>
+<h3>媒体按键</h3>
+<p>提供播放、音量加和音量减三个按键。</p>
+</article>
+<article>
+<h3>配置与时钟</h3>
+<p>AT24C256 保存配置数据，12 MHz 晶振提供参考时钟。</p>
+</article>
+<article>
+<h3>电源与保护</h3>
+<p>独立 3.3V、1.8V 电源、滤波元件和 USB ESD 防护适用于混合信号音频设计。</p>
+</article>
+<article>
+<h3>生产资料</h3>
+<p>最终项目包含 OrCAD 原理图、Allegro PCB、BOM、Gerber、钻孔及机械 DXF。</p>
+</article>
+<article>
+<h3>设计检查</h3>
+<p>最终 hifi_0714 PCB 报告记录为零 DRC 错误和零数据库错误。</p>
+</article>
+<article>
+<h3>验证状态</h3>
+<p>项目文件记录了 192 kHz 设计目标；音频实测指标、主机兼容模式和量产测试结果仍需公开验证。</p>
+</article>
+</div>
+</section>
+<section class="section">
+<div class="section-heading">
+<p class="section-kicker">PCB 布局</p>
+<h2>USB 混合信号音频板</h2>
+</div>
+<div class="project-gallery">
+<figure>
+<img src="../images/projects/usb-hifi-192k-audio-interface/pcb-layout.png" alt="USB 音频板布局和走线">
+<figcaption>最终元件布局、模拟/数字区域与机械板框</figcaption>
+</figure>
+</div>
+</section>
+<section class="section download-actions">
+<div class="hero-actions"><a class="button primary" href="https://github.com/XXboard/USB-Hi-Fi-192K-Audio-Interface/tree/main/Hardware">VIEW HARDWARE FILES</a><a class="button secondary" href="https://github.com/XXboard/USB-Hi-Fi-192K-Audio-Interface/tree/main/Firmware">VIEW FIRMWARE SOURCE</a></div>
+</section>
+</main>
+<footer class="footer">
+<p>© 2026 XXboard。电子硬件开发与开源硬件。</p>
+<div>
+<a href="open-hardware.html">开源硬件</a>
+<a href="custom-projects.html">定制项目</a>
+<a href="forum.html">社区</a>
+<a href="contact.html">联系</a>
+</div>
+</footer>
+</body>
+</html>
+

@@ -1,0 +1,121 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>USB Hi-Fi 192K Audio Interface | Open Hardware | XXboard</title>
+<meta name="description" content="Open-hardware USB Hi-Fi audio interface with SA9227 USB audio controller, AK4430 DAC, AK5720 ADC, MEMS microphone, analog output and media controls.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+<nav class="nav">
+<a class="brand" href="index.html">
+<span class="brand-mark">
+<span class="brand-word">XXboard</span>
+</span>
+</a>
+<div class="nav-links">
+<a href="open-hardware.html">Open Hardware</a>
+<a href="custom-projects.html">Custom Projects</a>
+<a href="forum.html">Community</a>
+<a href="contact.html">Contact</a>
+</div>
+<select class="language-select" onchange="if(this.value)location.href=this.value">
+<option selected>English</option>
+<option value="zh/usb-hifi-192k-audio-interface.html">Chinese</option>
+<option value="ja/usb-hifi-192k-audio-interface.html">Japanese</option>
+<option value="ko/usb-hifi-192k-audio-interface.html">Korean</option>
+<option value="es/usb-hifi-192k-audio-interface.html">Spanish</option>
+<option value="fr/usb-hifi-192k-audio-interface.html">French</option>
+<option value="de/usb-hifi-192k-audio-interface.html">German</option>
+</select>
+</nav>
+</header>
+<main>
+<section class="section detail-section lighter-hero">
+<div>
+<p class="section-kicker">USB Audio Platform</p>
+<h1>USB Hi-Fi 192K Audio Interface</h1>
+<p class="hero-text">An open-hardware USB audio input and output platform combining a dedicated USB audio controller, stereo DAC, stereo ADC, MEMS microphone and analog audio output.</p>
+<div class="tags">
+<b>SA9227</b>
+<b>AK4430 DAC</b>
+<b>AK5720 ADC</b>
+<b>192 kHz Design</b>
+</div>
+</div>
+<img class="hifi-detail-photo" src="images/projects/usb-hifi-192k-audio-interface/pcb-layout.png" alt="USB Hi-Fi 192K Audio Interface PCB layout">
+</section>
+<section class="section detail-section">
+<div class="detail-grid">
+<article>
+<h3>SA9227 USB audio controller</h3>
+<p>The dedicated USB audio controller manages the USB connection and I²S audio streams.</p>
+</article>
+<article>
+<h3>High-quality stereo output</h3>
+<p>An AK4430 stereo DAC converts the digital audio stream to left and right analog channels.</p>
+</article>
+<article>
+<h3>Stereo audio capture</h3>
+<p>The AK5720 ADC provides analog-to-digital conversion for recording and audio-input applications.</p>
+</article>
+<article>
+<h3>Integrated MEMS microphone</h3>
+<p>An SPU0414HR5H microphone is included for voice input and recording experiments.</p>
+</article>
+<article>
+<h3>Media controls</h3>
+<p>Dedicated Play, Volume Up and Volume Down keys provide direct host media control.</p>
+</article>
+<article>
+<h3>Configuration and clocking</h3>
+<p>An AT24C256 EEPROM stores configuration data, while a 12 MHz crystal provides the reference clock.</p>
+</article>
+<article>
+<h3>Power and protection</h3>
+<p>Separate 3.3V and 1.8V rails, filtering components and USB ESD protection support the mixed-signal audio design.</p>
+</article>
+<article>
+<h3>Open production files</h3>
+<p>The final project contains OrCAD schematics, Allegro PCB, BOM, Gerber, drill and mechanical DXF files.</p>
+</article>
+<article>
+<h3>Design verification</h3>
+<p>The final hifi_0714 PCB report records zero DRC errors and zero database errors.</p>
+</article>
+<article>
+<h3>Validation status</h3>
+<p>The 192 kHz design target is documented by the project files; measured audio performance, supported host modes and production test results still need a public validation report.</p>
+</article>
+</div>
+</section>
+<section class="section">
+<div class="section-heading">
+<p class="section-kicker">PCB Layout</p>
+<h2>Mixed-signal USB audio board</h2>
+</div>
+<div class="project-gallery">
+<figure>
+<img src="images/projects/usb-hifi-192k-audio-interface/pcb-layout.png" alt="Component placement and routing of the USB audio board">
+<figcaption>Final component placement, analog/digital sections and mechanical outline</figcaption>
+</figure>
+</div>
+</section>
+<section class="section download-actions">
+<div class="hero-actions"><a class="button primary" href="https://github.com/XXboard/USB-Hi-Fi-192K-Audio-Interface/tree/main/Hardware">VIEW HARDWARE FILES</a><a class="button secondary" href="https://github.com/XXboard/USB-Hi-Fi-192K-Audio-Interface/tree/main/Firmware">VIEW FIRMWARE SOURCE</a></div>
+</section>
+</main>
+<footer class="footer">
+<p>© 2026 XXboard. Electronic hardware development and open hardware.</p>
+<div>
+<a href="open-hardware.html">Open Hardware</a>
+<a href="custom-projects.html">Custom Projects</a>
+<a href="forum.html">Community</a>
+<a href="contact.html">Contact</a>
+</div>
+</footer>
+</body>
+</html>
+
