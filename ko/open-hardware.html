@@ -4,8 +4,18 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>오픈 하드웨어 | XXboard</title>
-<meta name="description" content="XXboard가 공개하는 오픈 하드웨어 프로젝트." />
+<meta name="description" content="오픈 하드웨어 프로젝트를 발견하고 게시하세요. 누구나 자신의 작품을 공유할 수 있습니다." />
 <link rel="stylesheet" href="../styles.css" />
+<!-- SEO language links -->
+<link rel="canonical" href="https://xxboard.com/ko/open-hardware.html" />
+<link rel="alternate" hreflang="en" href="https://xxboard.com/open-hardware.html" />
+<link rel="alternate" hreflang="zh-CN" href="https://xxboard.com/zh/open-hardware.html" />
+<link rel="alternate" hreflang="ja" href="https://xxboard.com/ja/open-hardware.html" />
+<link rel="alternate" hreflang="ko" href="https://xxboard.com/ko/open-hardware.html" />
+<link rel="alternate" hreflang="es" href="https://xxboard.com/es/open-hardware.html" />
+<link rel="alternate" hreflang="fr" href="https://xxboard.com/fr/open-hardware.html" />
+<link rel="alternate" hreflang="de" href="https://xxboard.com/de/open-hardware.html" />
+<link rel="alternate" hreflang="x-default" href="https://xxboard.com/open-hardware.html" />
 </head>
 <body>
 <header class="site-header">
@@ -37,7 +47,7 @@
 <div class="section-head">
 <div>
 <p class="section-kicker">오픈 하드웨어</p>
-<h2>XXboard가 공개하는 오픈 하드웨어 프로젝트.</h2>
+<h2>오픈 하드웨어를 발견하고 게시하세요. 누구나 공유할 수 있습니다.</h2>
 </div>
 <a class="text-link" href="https://github.com/XXboard">GitHub 저장소 보기 →</a>
 </div>
@@ -77,6 +87,11 @@
 <span>PCB 안테나, BISS0001 신호 처리 및 디지털 감지 출력을 갖춘 소형 오픈 하드웨어 센서입니다.</span>
 <div class="tags"><b>마이크로파</b><b>BISS0001</b><b>PCB 안테나</b><b>동작 감지</b></div>
 </article>
+<article class="product-card">
+<a href="cm4-sata-vault-12.html"><img class="project-photo sata-vault-photo" src="../images/projects/cm4-sata-vault-12/cover.png" alt="CM4 SATA Vault 12" /></a><p>네트워크 스토리지</p><h3>CM4 SATA Vault 12</h3><span>Raspberry Pi CM4 기반의 검증된 오픈 하드웨어 12포트 SATA NAS 보드입니다.</span><div class="tags"><b>CM4</b><b>12 SATA</b><b>NAS</b><b>검증 완료</b></div>
+</article>
+<article class="product-card"><a href="stm32f103-multimedia.html"><img class="project-photo stm32-board-photo" src="../images/projects/stm32f103-multimedia/controller-side.png" alt="STM32F103RCT6 멀티미디어 개발 보드" /></a><p>MCU 개발</p><h3>STM32F103RCT6 멀티미디어 개발 보드</h3><span>LCD, MicroSD, Flash, USB 시리얼, RS232, RTC 및 센서 확장을 통합한 오픈 하드웨어 보드입니다.</span><div class="tags"><b>STM32F103RCT6</b><b>LCD</b><b>MicroSD</b><b>RS232</b></div></article>
+<article class="product-card"><a href="high-voltage-led-mosquito-killer.html"><img class="project-photo mosquito-killer-photo" src="../images/projects/high-voltage-led-mosquito-killer/pcb-layout.png" alt="고전압 LED 모기 퇴치기 PCB" /></a><p>전자 해충 방제</p><h3>고전압 LED 모기 퇴치기</h3><span>청색 LED 유인광과 변압기 구동 고전압 그리드를 결합한 오픈 하드웨어입니다.</span><div class="tags"><b>청색 LED</b><b>고전압</b><b>5V USB</b></div></article>
 </div>
 </section>
 <section class="section detail-section submission-guidelines">
@@ -110,6 +125,8 @@
 <h3>소스 파일 크기</h3>
 <p>KiCad / Altium / CAD 소스 파일은 50 MB 이하 권장. 100 MB 초과 파일은 피하고 큰 영상은 외부 링크를 사용하세요.</p>
 </article>
+<article class="product-card"><a href="usb-hifi-192k-audio-interface.html"><img class="project-photo hifi-project-photo" src="../images/projects/usb-hifi-192k-audio-interface/pcb-layout.png" alt="USB Hi-Fi 192K 오디오 인터페이스 PCB" /></a><p>USB 오디오</p><h3>USB Hi-Fi 192K 오디오 인터페이스</h3><span>DAC, ADC, MEMS 마이크, 아날로그 출력 및 미디어 키를 갖춘 오픈 하드웨어입니다.</span><div class="tags"><b>USB Audio</b><b>192 kHz</b><b>DAC + ADC</b></div></article>
+<article class="product-card"><a href="lt8918-lvds-mipi-bridge.html"><img class="project-photo video-bridge-photo" src="../images/projects/lt8918-lvds-mipi-bridge/pcb-layout.png" alt="LT8918 LVDS-MIPI DSI 브리지 PCB" /></a><p>디스플레이 인터페이스</p><h3>LT8918 LVDS-MIPI DSI 브리지 보드</h3><span>듀얼 채널 LVDS를 4레인 MIPI DSI로 변환하며 MCU와 백라이트 제어를 제공합니다.</span><div class="tags"><b>LT8918</b><b>LVDS</b><b>MIPI DSI</b></div></article>
 </div>
 <p class="pricing-note">권장 저장소 구조: README.md, /images, /docs, /hardware, /firmware, /mechanical, LICENSE. 제출 시 라이선스, 현재 상태, 저장소 링크를 포함하세요.</p>
 </section>
