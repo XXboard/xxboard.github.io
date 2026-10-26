@@ -290,44 +290,11 @@ h1 {
 }
 
 .board-card {
-  position: relative;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  aspect-ratio: 3 / 2;
-  min-height: 0;
-  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 34px;
-  background: #0057b7;
-  padding: 0;
+  background: var(--panel);
+  padding: 20px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
-}
-
-.board-card::before,
-.board-card::after {
-  display: block;
-}
-
-.board-card::before {
-  content: "We Support Ukraine";
-  display: grid;
-  place-items: center;
-  background: #0057b7;
-  color: #fff;
-  font-size: clamp(20px, 2.8vw, 36px);
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-align: center;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.38);
-}
-
-.board-card::after {
-  content: "";
-  background: #ffd700;
-}
-
-.board-card .board-panel {
-  display: none;
 }
 
 .board-panel {
