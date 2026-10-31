@@ -74,6 +74,12 @@
       blocks.push(`\n【${labels[step]}】`);
       Object.entries(project[step]).forEach(function ([key, value]) { blocks.push(`${key}：${value}`); });
     });
+    if (project.contact) {
+      blocks.push('\n【联系方式】');
+      Object.entries(project.contact).forEach(function ([key, value]) {
+        if (value) blocks.push(`${key}：${value}`);
+      });
+    }
     return blocks.join('\n');
   }
 
@@ -111,7 +117,35 @@
       this.textContent = '已复制';
     });
     document.querySelector('[data-print-summary]').addEventListener('click', function () { window.print(); });
+    const contactForm = document.querySelector('[data-contact-form]');
+    const contactError = document.querySelector('[data-contact-error]');
+    const contactFields = Array.from(contactForm.querySelectorAll('input'));
+    if (project.contact) {
+      contactFields.forEach(function (field) { field.value = project.contact[field.name] || ''; });
+    }
+    function saveContact() {
+      const contact = {};
+      contactFields.forEach(function (field) { contact[field.name] = field.value.trim(); });
+      if (!Object.values(contact).some(Boolean)) {
+        contactError.textContent = '请至少填写电话号码、微信号码或电子邮箱中的一种。';
+        contactFields[0].focus();
+        return false;
+      }
+      contactError.textContent = '';
+      project.contact = contact;
+      project.updatedAt = new Date().toISOString();
+      writeProject(project);
+      return true;
+    }
+    contactForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (!saveContact()) return;
+      const button = contactForm.querySelector('button[type="submit"]');
+      button.textContent = '项目已完成并保存';
+      button.classList.add('completed');
+    });
     document.querySelector('[data-email-summary]').addEventListener('click', function () {
+      if (!saveContact()) return;
       location.href = `mailto:contact@xxboard.com?subject=${encodeURIComponent('XXboard 新项目需求')}&body=${encodeURIComponent(projectText(project))}`;
     });
     document.querySelector('[data-clear-project]').addEventListener('click', function () {
