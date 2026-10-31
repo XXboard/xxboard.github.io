@@ -3,12 +3,22 @@
   const labels = {schematic:'原理图设计', pcb:'PCB 设计', software:'软件开发'};
   const editLinks = {schematic:'schematic-design.html', pcb:'pcb-design.html', software:'software.html'};
 
+  function createProjectId() {
+    const now = new Date();
+    const date = [now.getFullYear(), String(now.getMonth() + 1).padStart(2, '0'), String(now.getDate()).padStart(2, '0')].join('');
+    const random = Array.from(crypto.getRandomValues(new Uint8Array(3)), function (value) {
+      return (value % 36).toString(36).toUpperCase();
+    }).join('');
+    return `XXB-${date}-${random}`;
+  }
+
   function readProject() {
     try { return JSON.parse(localStorage.getItem(storageKey)) || {}; }
     catch (error) { return {}; }
   }
 
   function writeProject(project) {
+    if (!project.id) project.id = createProjectId();
     localStorage.setItem(storageKey, JSON.stringify(project));
   }
 
@@ -68,7 +78,7 @@
   }
 
   function projectText(project) {
-    const blocks = ['XXboard 项目需求'];
+    const blocks = ['XXboard 项目评估表', `项目需求表单号：${project.id || '待生成'}`];
     ['schematic','pcb','software'].forEach(function (step) {
       if (!project[step]) return;
       blocks.push(`\n【${labels[step]}】`);
@@ -86,6 +96,12 @@
   const summaryRoot = document.querySelector('[data-project-summary]');
   if (summaryRoot) {
     const project = readProject();
+    if (!project.id) {
+      project.id = createProjectId();
+      writeProject(project);
+    }
+    const projectIdNode = document.querySelector('[data-project-id]');
+    if (projectIdNode) projectIdNode.textContent = project.id;
     const steps = ['schematic','pcb','software'].filter(function (step) { return project[step]; });
     const empty = document.querySelector('[data-empty-state]');
     const status = document.querySelector('[data-summary-status]');
@@ -141,7 +157,7 @@
       event.preventDefault();
       if (!saveContact()) return;
       const button = contactForm.querySelector('button[type="submit"]');
-      button.textContent = '项目已完成并保存';
+      button.textContent = '项目评估表已完成';
       button.classList.add('completed');
     });
     document.querySelector('[data-email-summary]').addEventListener('click', function () {
