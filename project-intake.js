@@ -1,4 +1,23 @@
 document.querySelectorAll('[data-project-form]').forEach(function (form) {
+  const routeInputs = form.querySelectorAll('[data-route]');
+  const routePanels = form.querySelectorAll('[data-route-panel]');
+
+  function updateRoutePanels() {
+    const selected = form.querySelector('[data-route]:checked');
+    routePanels.forEach(function (panel) {
+      const visible = selected && panel.dataset.routePanel === selected.dataset.route;
+      panel.hidden = !visible;
+      panel.querySelectorAll('input, select, textarea').forEach(function (field) {
+        field.disabled = !visible;
+      });
+    });
+  }
+
+  routeInputs.forEach(function (input) {
+    input.addEventListener('change', updateRoutePanels);
+  });
+  updateRoutePanels();
+
   form.addEventListener('submit', function (event) {
     event.preventDefault();
     const data = new FormData(form);
