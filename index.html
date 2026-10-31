@@ -1,97 +1,103 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>XXboard</title>
-<meta name="description" content="XXboard is an open hardware platform for electronics, AI compute, terminal devices, industrial devices, PCB modules, and hardware collaboration." />
-<link rel="stylesheet" href="styles.css" />
-<!-- SEO language links -->
-<link rel="canonical" href="https://xxboard.com/" />
-<link rel="alternate" hreflang="en" href="https://xxboard.com/" />
-<link rel="alternate" hreflang="zh-CN" href="https://xxboard.com/zh/" />
-<link rel="alternate" hreflang="ja" href="https://xxboard.com/ja/" />
-<link rel="alternate" hreflang="ko" href="https://xxboard.com/ko/" />
-<link rel="alternate" hreflang="es" href="https://xxboard.com/es/" />
-<link rel="alternate" hreflang="fr" href="https://xxboard.com/fr/" />
-<link rel="alternate" hreflang="de" href="https://xxboard.com/de/" />
-<link rel="alternate" hreflang="x-default" href="https://xxboard.com/" />
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TRTC5GF8GT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-TRTC5GF8GT');
-</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>XXboard｜MCU、嵌入式与电子硬件开发</title>
+  <meta name="description" content="XXboard 提供 MCU 固件、原理图、PCB、样机调试、物联网与量产支持，从需求梳理到可生产方案。">
+  <link rel="canonical" href="https://xxboard.com/">
+  <link rel="stylesheet" href="styles.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRTC5GF8GT"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-TRTC5GF8GT');</script>
 </head>
-<body class="home-page">
-<header class="site-header">
-<nav class="nav">
-<a class="brand" href="index.html" aria-label="XXboard home">
-<span class="brand-mark">
-<span class="brand-word">XXboard</span>
-</span>
-</a>
-<div class="nav-links" aria-label="Main navigation">
-<a href="open-hardware.html">Open Hardware</a>
-<a href="custom-projects.html">Custom Projects</a>
-<a href="forum.html">Community</a>
-<a href="contact.html">Contact</a>
-</div>
-<select class="language-select" aria-label="Language" onchange="if(this.value) window.location.href=this.value">
-<option value="index.html" selected>English</option>
-<option value="zh/index.html">Chinese</option>
-<option value="ja/index.html">Japanese</option>
-<option value="ko/index.html">Korean</option>
-<option value="es/index.html">Spanish</option>
-<option value="fr/index.html">French</option>
-<option value="de/index.html">German</option>
-</select>
-</nav>
-</header>
-<main>
-<section class="hero">
-<div class="hero-copy">
-<h1>A truly open hardware website. Build, share, and discover open hardware projects.</h1>
-<p class="hero-text">XXboard is an open hardware platform for electronics, AI compute, terminal devices, industrial devices, PCB modules, and accessories. We help makers, engineers, and teams publish hardware projects, discuss designs, and move useful ideas from prototype to production.</p>
-</div>
-<div class="board-card">
-<div class="board-panel">
-<div class="panel-top">
-<span>XXboard Open Hardware</span>
-<strong>OPEN HW</strong>
-</div>
-<div class="board-grid">
-<div class="chip-area">
-</div>
-<div class="side-slots">
-<span>
-</span>
-<span>
-</span>
-<span>
-</span>
-</div>
-</div>
-<div class="spec-row">
-<span>AI</span>
-<span>PCB</span>
-<span>DOCS</span>
-<span>PCBA</span>
-</div>
-</div>
-</div>
-</section>
-</main>
-<footer class="footer">
-<p>© 2026 XXboard. Electronic hardware development and open hardware.</p>
-<div>
-<a href="open-hardware.html">Open Hardware</a>
-<a href="custom-projects.html">Custom Projects</a>
-<a href="forum.html">Community</a>
-<a href="contact.html">Contact</a>
-</div>
-</footer>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="XXboard 首页"><span>XX</span>board</a>
+    <nav aria-label="主导航">
+      <a href="#services">开发服务</a>
+      <a href="#process">合作流程</a>
+      <a href="#capabilities">技术能力</a>
+      <a class="nav-cta" href="#brief">提交需求</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <p class="eyebrow">MCU · EMBEDDED · ELECTRONICS</p>
+        <h1>把产品想法，做成<br><em>可以量产的硬件。</em></h1>
+        <p class="hero-lead">从 MCU 选型、固件与电路设计，到 PCB、样机调试和小批量生产。XXboard 为新产品、设备升级和疑难项目提供完整开发方案。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#brief">描述你的项目</a>
+          <a class="button secondary" href="mailto:contact@xxboard.com">contact@xxboard.com</a>
+        </div>
+        <ul class="trust-list" aria-label="服务特点">
+          <li>需求可行性评估</li><li>软硬件联合开发</li><li>面向生产交付</li>
+        </ul>
+      </div>
+      <div class="hero-board" aria-label="嵌入式系统开发示意">
+        <div class="board-top"><span>XXboard / PROJECT 01</span><b>ENGINEERING</b></div>
+        <div class="chip"><span>MCU</span><strong>YOUR<br>PRODUCT</strong></div>
+        <span class="pin p1"></span><span class="pin p2"></span><span class="pin p3"></span><span class="pin p4"></span>
+        <div class="signal s1">UART</div><div class="signal s2">CAN</div><div class="signal s3">BLE</div><div class="signal s4">USB</div>
+        <div class="board-status"><i></i> PROTOTYPE READY</div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="支持平台">
+      <div>STM32 <span>•</span> ESP32 <span>•</span> GD32 <span>•</span> NXP <span>•</span> Nordic <span>•</span> RP2040 <span>•</span> RISC-V <span>•</span> Linux SBC</div>
+    </section>
+
+    <section class="section-shell section-block" id="services">
+      <div class="section-heading"><p class="eyebrow">WHAT WE BUILD</p><h2>从一个问题，到一套完整方案</h2><p>可以承接完整产品，也可以只解决其中一个技术环节。</p></div>
+      <div class="service-grid">
+        <article><span>01</span><h3>MCU 与固件开发</h3><p>裸机、RTOS、驱动、通信协议、低功耗、Bootloader、在线升级与现有代码维护。</p><b>STM32 / ESP32 / GD32 / NXP</b></article>
+        <article><span>02</span><h3>电路与 PCB 设计</h3><p>器件选型、原理图、多层 PCB、EMC/ESD、功耗与成本优化，输出生产文件。</p><b>原理图 / Layout / BOM / Gerber</b></article>
+        <article><span>03</span><h3>物联网与通信</h3><p>Wi-Fi、BLE、4G、LoRa、RS485、CAN、USB、以太网及 MQTT 等协议接入。</p><b>设备端 / 网关 / 云端接口</b></article>
+        <article><span>04</span><h3>样机与量产支持</h3><p>打样、焊接、Bring-up、测试工装、故障定位、小批量试产和量产问题闭环。</p><b>Prototype → Production</b></article>
+      </div>
+    </section>
+
+    <section class="dark-section" id="process">
+      <div class="section-shell section-block">
+        <div class="section-heading light"><p class="eyebrow">HOW WE WORK</p><h2>每一步都有明确输出</h2></div>
+        <ol class="process-list">
+          <li><span>01</span><div><h3>需求与可行性</h3><p>明确功能、接口、尺寸、成本、认证和时间目标，识别项目风险。</p></div></li>
+          <li><span>02</span><div><h3>方案与报价</h3><p>给出系统架构、器件平台、开发范围、里程碑和交付清单。</p></div></li>
+          <li><span>03</span><div><h3>开发与验证</h3><p>软硬件同步推进，按阶段提供可检查成果和测试记录。</p></div></li>
+          <li><span>04</span><div><h3>交付与生产</h3><p>交付源文件、固件和生产资料，并支持试产与后续迭代。</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section-shell section-block" id="capabilities">
+      <div class="section-heading"><p class="eyebrow">CAPABILITIES</p><h2>适合这些项目</h2></div>
+      <div class="capability-cloud">
+        <span>工业控制器</span><span>传感器采集</span><span>智能家居</span><span>电机控制</span><span>电池与电源</span><span>仪器仪表</span><span>USB 设备</span><span>无线终端</span><span>数据采集器</span><span>网关设备</span><span>现有产品升级</span><span>疑难故障排查</span>
+      </div>
+    </section>
+
+    <section class="brief-section" id="brief">
+      <div class="section-shell brief-layout">
+        <div>
+          <p class="eyebrow">START A PROJECT</p>
+          <h2>告诉我们，你想做什么</h2>
+          <p>信息不必完整。先说清应用场景、主要功能和目前进度，我们会从工程角度帮你整理下一步。</p>
+          <div class="contact-note"><span>直接联系</span><a href="mailto:contact@xxboard.com">contact@xxboard.com</a><small>通常在 1–2 个工作日内回复</small></div>
+        </div>
+        <form id="project-form">
+          <div class="form-row"><label>你的称呼<input name="name" autocomplete="name" required></label><label>联系邮箱<input name="email" type="email" autocomplete="email" required></label></div>
+          <label>项目类型<select name="type"><option>MCU / 固件开发</option><option>原理图 / PCB 设计</option><option>物联网 / 通信设备</option><option>样机 / 量产支持</option><option>故障分析 / 产品升级</option><option>其他电子硬件项目</option></select></label>
+          <label>项目需求<textarea name="details" rows="6" required placeholder="例如：设备做什么、倾向的 MCU、需要哪些接口、目前做到哪一步、预计数量和时间……"></textarea></label>
+          <div class="form-row"><label>预计数量<input name="quantity" placeholder="样机 / 100 / 10k"></label><label>目标时间<input name="timeline" placeholder="例如 3 个月"></label></div>
+          <button class="button primary submit-button" type="submit">生成项目邮件</button>
+          <p class="form-help">点击后会打开你的邮件应用，并自动整理以上需求。</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#top"><span>XX</span>board</a><p>MCU, embedded systems and electronic hardware development.</p><p>© 2026 XXboard</p></footer>
+  <script src="project-intake.js"></script>
 </body>
 </html>
