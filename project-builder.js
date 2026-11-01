@@ -11,19 +11,31 @@
   function projectType(project) {
     const hasHardware = Boolean(project.schematic || project.pcb);
     const hasSoftware = Boolean(project.software);
-    if (hasHardware && hasSoftware) return 'ALL';
-    if (hasHardware) return 'HWD';
-    if (hasSoftware) return 'SFW';
-    return 'BAS';
+    if (hasHardware && hasSoftware) return 'A';
+    if (hasHardware) return 'H';
+    if (hasSoftware) return 'S';
+    return 'B';
+  }
+
+  function projectNumber(project) {
+    if (/^\d{6}$/.test(project.numberCode || '')) return project.numberCode;
+    const existingNumber = project.id && project.id.match(/^XXB\d{8}[BHSA](\d{6})$/);
+    if (existingNumber) {
+      project.numberCode = existingNumber[1];
+    } else {
+      const value = 1 + (crypto.getRandomValues(new Uint32Array(1))[0] % 999999);
+      project.numberCode = String(value).padStart(6, '0');
+    }
+    return project.numberCode;
   }
 
   function createProjectId(project) {
     const now = new Date();
-    const existingDate = project.id && project.id.match(/^XXB-(\d{8})-/);
+    const existingDate = project.id && project.id.match(/^XXB-?(\d{8})/);
     const date = existingDate
       ? existingDate[1]
       : [now.getFullYear(), String(now.getMonth() + 1).padStart(2, '0'), String(now.getDate()).padStart(2, '0')].join('');
-    return `XXB-${date}-${projectType(project)}`;
+    return `XXB${date}${projectType(project)}${projectNumber(project)}`;
   }
 
   function readProject() {
