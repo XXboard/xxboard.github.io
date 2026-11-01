@@ -22,11 +22,9 @@
     const existingNumber = project.id && project.id.match(/^XXB\d{8}[BHSA](\d{6})$/);
     if (existingNumber) {
       project.numberCode = existingNumber[1];
-    } else {
-      const value = 1 + (crypto.getRandomValues(new Uint32Array(1))[0] % 999999);
-      project.numberCode = String(value).padStart(6, '0');
+      return project.numberCode;
     }
-    return project.numberCode;
+    return '------';
   }
 
   function createProjectId(project) {
@@ -227,26 +225,31 @@
       const button = contactForm.querySelector('button[type="submit"]');
       button.disabled = true;
       button.textContent = isEnglishPage ? 'Submitting…' : '正在提交……';
-      const isChinesePage = !isEnglishPage;
-      const recipient = isChinesePage ? 'TUZHIQUAN@126.COM' : 'IWTFNSC@GMAIL.COM';
-      const submission = new FormData();
-      submission.append('_subject', `${isChinesePage ? 'XXboard 新项目需求' : 'XXboard New Project Request'} ${project.id}`);
-      submission.append('_template', 'table');
-      submission.append('_captcha', 'false');
-      submission.append('项目编号', project.id);
-      Object.entries(project.contact).forEach(function ([key, value]) {
-        if (value) submission.append(key, value);
-      });
-      submission.append('项目需求', projectText(project));
+      const dateMatch = project.id.match(/^XXB(\d{8})/);
+      const serviceUrl = 'https://script.google.com/macros/s/AKfycbwCBhObq8oMI4zdKdj3AXc-6-ny07dzbDif5J2Kf3N-guewyNE0RYP3gnSGHNBFd2g2pA/exec';
       try {
-        const response = await fetch(`https://formsubmit.co/ajax/${recipient}`, {
+        const response = await fetch(serviceUrl, {
           method: 'POST',
-          headers: { Accept: 'application/json' },
-          body: submission
+          body: JSON.stringify({
+            language: isEnglishPage ? 'en' : 'zh',
+            type: projectType(project),
+            date: dateMatch ? dateMatch[1] : '',
+            projectText: projectText(project)
+          })
         });
         const result = await response.json().catch(function () { return {}; });
         const accepted = result.success === true || result.success === 'true';
-        if (!response.ok || !accepted) throw new Error(result.message || '第三方服务未确认接收');
+        if (!response.ok || !accepted || !/^XXB\d{8}[BHSA]\d{6}$/.test(result.projectId || '')) {
+          throw new Error(result.message || (isEnglishPage ? 'The project service did not confirm receipt' : '项目服务未确认接收'));
+        }
+        project.id = result.projectId;
+        project.numberCode = result.projectId.slice(-6);
+        project.submittedAt = new Date().toISOString();
+        writeProject(project);
+        document.querySelectorAll('[data-project-id]').forEach(function (node) { node.textContent = project.id; });
+        document.querySelectorAll('.summary-project-id').forEach(function (node) {
+          node.textContent = `${isEnglishPage ? 'Project ID' : '项目编号'}：${project.id}`;
+        });
         contactError.textContent = '';
         button.textContent = isEnglishPage ? 'Project evaluation completed' : '项目评估表已完成';
         button.classList.add('completed');
