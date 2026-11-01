@@ -62,5 +62,6 @@ legend{padding:0 0 8px;font-size:17px;font-weight:900}
 @media(max-width:950px){.boss-form-layout .builder-aside{grid-template-columns:1fr auto}.boss-form-layout .builder-aside ul{grid-column:1/-1;grid-row:2;grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.boss-form-layout .builder-aside{grid-template-columns:1fr}.boss-form-layout .builder-aside ul{grid-column:1;grid-row:auto;grid-template-columns:1fr}.boss-form-layout .saved-indicator{justify-self:start}}
 @media(max-width:850px){.site-header nav a[href="index.html"]{display:inline-flex!important}}
+@media(max-width:850px){.site-header nav .language-switch{display:inline-flex!important}}
 .number-unit-field{display:grid;grid-template-columns:1fr 94px}.number-unit-field input{border-radius:7px 0 0 7px}.number-unit-field select{border-left:0;border-radius:0 7px 7px 0;background:#f0f0eb;font-weight:800}.number-unit-field.fixed-unit{grid-template-columns:1fr 64px}.number-unit-field>span{display:grid;place-items:center;border:1px solid #cfd1cc;border-left:0;border-radius:0 7px 7px 0;background:#f0f0eb;font-size:15px;font-weight:900}
 .form-validation-error{margin:8px 0 0;border:1px solid #e8a89d;border-radius:8px;background:#fff0ed;padding:13px 15px;color:#a52f1c;font-size:14px;font-weight:800}
