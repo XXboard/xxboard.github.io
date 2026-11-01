@@ -8,13 +8,22 @@
     ? {overview:'project.html', schematic:'../schematic-design.html', pcb:'../pcb-design.html', software:'../software.html'}
     : {overview:'boss-intake.html', schematic:'schematic-design.html', pcb:'pcb-design.html', software:'software.html'};
 
-  function createProjectId() {
+  function projectType(project) {
+    const hasHardware = Boolean(project.schematic || project.pcb);
+    const hasSoftware = Boolean(project.software);
+    if (hasHardware && hasSoftware) return 'ALL';
+    if (hasHardware) return 'HWD';
+    if (hasSoftware) return 'SFW';
+    return 'BAS';
+  }
+
+  function createProjectId(project) {
     const now = new Date();
-    const date = [now.getFullYear(), String(now.getMonth() + 1).padStart(2, '0'), String(now.getDate()).padStart(2, '0')].join('');
-    const random = Array.from(crypto.getRandomValues(new Uint8Array(3)), function (value) {
-      return (value % 36).toString(36).toUpperCase();
-    }).join('');
-    return `XXB-${date}-${random}`;
+    const existingDate = project.id && project.id.match(/^XXB-(\d{8})-/);
+    const date = existingDate
+      ? existingDate[1]
+      : [now.getFullYear(), String(now.getMonth() + 1).padStart(2, '0'), String(now.getDate()).padStart(2, '0')].join('');
+    return `XXB-${date}-${projectType(project)}`;
   }
 
   function readProject() {
@@ -23,7 +32,7 @@
   }
 
   function writeProject(project) {
-    if (!project.id) project.id = createProjectId();
+    project.id = createProjectId(project);
     localStorage.setItem(storageKey, JSON.stringify(project));
   }
 
@@ -128,8 +137,14 @@
   if (summaryRoot) {
     const project = readProject();
     if (!project.id) {
-      project.id = createProjectId();
+      project.id = createProjectId(project);
       writeProject(project);
+    } else {
+      const currentId = createProjectId(project);
+      if (project.id !== currentId) {
+        project.id = currentId;
+        writeProject(project);
+      }
     }
     const projectIdNode = document.querySelector('[data-project-id]');
     if (projectIdNode) projectIdNode.textContent = project.id;
