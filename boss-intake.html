@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>简单描述产品需求｜XXboard</title>
+  <meta name="description" content="不需要了解芯片、原理图、PCB 或软件术语，用简单语言描述产品需求。">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="service-pages.css">
+</head>
+<body>
+<header class="site-header"><a class="brand" href="index.html"><span>XX</span>board</a><nav><a href="index.html">首页</a><a href="hardware.html">硬件</a><a href="software.html">软件</a></nav><a class="header-cta" href="project-summary.html">查看项目表</a></header>
+<main>
+  <section class="builder-head section-shell">
+    <nav class="breadcrumb"><a href="index.html">首页</a><span>/</span><b>简单描述需求</b></nav>
+    <p class="eyebrow">BOSS MODE · NO TECHNICAL TERMS</p>
+    <h1>不懂技术没关系，<br>说清楚产品要做什么就行。</h1>
+    <p class="boss-form-intro">芯片、原理图、PCB 和软件方案由我们评估。下面的问题知道多少填多少，不确定的可以留空。</p>
+  </section>
+  <section class="technical-shortcut section-shell" aria-label="专业需求入口">
+    <div><p class="eyebrow">专业信息补充 · 选填</p><h2>如您已掌握具体的软硬件需求</h2><p>可进入专业页面补充技术信息，帮助我们更准确地评估项目。暂时不确定也没关系，直接继续填写下面的产品需求即可。</p></div>
+    <div class="technical-shortcut-links"><a href="software.html"><span>软件</span><small>芯片、代码、驱动和通信需求</small></a><a href="hardware.html"><span>硬件</span><small>原理图、元件和 PCB 需求</small></a></div>
+  </section>
+  <section class="builder-body">
+    <div class="section-shell boss-form-layout">
+      <aside class="builder-aside"><h2>您只需要说明</h2><ul><li>想做一个什么产品</li><li>产品需要实现什么功能</li><li>目前手里已有些什么</li><li>时间或数量方面的要求</li></ul><div class="saved-indicator" data-saved-indicator>尚未保存</div></aside>
+      <form action="project-summary.html" data-step-form data-step="overview" data-next="project-summary.html"><input type="hidden" name="需求填写方式" value="普通产品需求说明">
+        <p class="boss-form-note">可以像平时聊天一样填写，不需要使用专业术语。</p>
+        <fieldset><legend>1. 您想做什么？</legend><label>产品或项目名称<input name="项目名称" placeholder="例如：工厂设备报警器、宠物喂食器"></label><label>希望产品实现什么功能？<textarea name="希望实现的功能" rows="6" placeholder="例如：机器温度过高时发出报警，并把消息发送到手机"></textarea></label><label>谁会使用？在什么地方使用？<textarea name="使用人群和场景" rows="3" placeholder="例如：工厂工人，在车间内长期使用"></textarea></label></fieldset>
+        <fieldset><legend>2. 目前进行到哪一步？</legend><div class="radio-grid"><label><input type="radio" name="目前状态" value="只有一个想法"><span><b>只有一个想法</b><small>还没有图纸或样机</small></span></label><label><input type="radio" name="目前状态" value="已有参考产品或外观"><span><b>有参考产品</b><small>有照片、样品或类似产品</small></span></label><label><input type="radio" name="目前状态" value="已有电路板或样机"><span><b>已有电路板</b><small>需要完善、修改或写程序</small></span></label><label><input type="radio" name="目前状态" value="已有完整产品，需要升级"><span><b>已有完整产品</b><small>需要增加功能或重新设计</small></span></label></div><label>现有资料或目前遇到的问题<textarea name="现有资料和问题" rows="4" placeholder="例如：有一块不能正常工作的电路板；有产品照片和功能说明"></textarea></label></fieldset>
+        <fieldset><legend>3. 其他要求</legend><div class="form-row"><label>希望什么时候完成<div class="number-unit-field"><input name="希望完成时间" type="number" min="1" step="1" inputmode="numeric" placeholder="填写数字"><select name="完成时间单位" data-requires="希望完成时间" aria-label="完成时间单位"><option>天</option><option selected>周</option><option>月</option></select></div></label><label>预计需要多少台<div class="number-unit-field fixed-unit"><input name="预计数量（台）" type="number" min="1" step="1" inputmode="numeric" placeholder="填写数字"><span>台</span></div></label></div><label>还有什么想告诉我们？<textarea name="补充说明" rows="4" placeholder="预算范围、产品大小、供电方式、使用环境等；不知道可以不填"></textarea></label></fieldset>
+        <div class="builder-actions"><button class="button secondary" type="button" onclick="history.back()">返回</button><button class="button primary" type="submit">保存并生成项目评估表</button></div>
+      </form>
+    </div>
+  </section>
+</main>
+<footer><a class="brand" href="index.html"><span>XX</span>board</a><p>不懂技术也可以提交产品想法。</p><p>© 2026 XXboard</p></footer>
+<script src="project-builder.js?v=20261101-5"></script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 (function () {
   const storageKey = 'xxboard-project-v1';
-  const labels = {schematic:'原理图设计', pcb:'PCB 设计', software:'软件开发'};
-  const editLinks = {schematic:'schematic-design.html', pcb:'pcb-design.html', software:'software.html'};
+  const labels = {overview:'产品需求说明', schematic:'原理图设计', pcb:'PCB 设计', software:'软件开发'};
+  const editLinks = {overview:'boss-intake.html', schematic:'schematic-design.html', pcb:'pcb-design.html', software:'software.html'};
 
   function createProjectId() {
     const now = new Date();
@@ -25,6 +25,11 @@
   function formValues(form) {
     const values = {};
     new FormData(form).forEach(function (value, key) {
+      const field = form.elements.namedItem(key);
+      if (field && field.dataset && field.dataset.requires) {
+        const requiredField = form.elements.namedItem(field.dataset.requires);
+        if (!requiredField || !String(requiredField.value).trim()) return;
+      }
       if (!String(value).trim()) return;
       if (values[key]) values[key] = `${values[key]}、${value}`;
       else values[key] = value;
@@ -61,6 +66,26 @@
       const indicator = document.querySelector('[data-saved-indicator]');
       if (indicator) indicator.textContent = '已读取上次保存内容';
     }
+    stepForm.addEventListener('invalid', function (event) {
+      event.preventDefault();
+      let error = stepForm.querySelector('.form-validation-error');
+      if (!error) {
+        error = document.createElement('p');
+        error.className = 'form-validation-error';
+        const actions = stepForm.querySelector('.builder-actions');
+        if (actions) actions.before(error);
+        else stepForm.appendChild(error);
+      }
+      const label = event.target.closest('label');
+      const fieldName = label ? label.childNodes[0].textContent.trim() : '必填内容';
+      error.textContent = `请先填写“${fieldName}”，然后再继续。`;
+      event.target.focus();
+      event.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, true);
+    stepForm.addEventListener('input', function () {
+      const error = stepForm.querySelector('.form-validation-error');
+      if (error) error.textContent = '';
+    });
     stepForm.addEventListener('submit', function (event) {
       event.preventDefault();
       if (!stepForm.reportValidity()) return;
@@ -70,7 +95,6 @@
     document.querySelectorAll('[data-save-and-go]').forEach(function (link) {
       link.addEventListener('click', function (event) {
         event.preventDefault();
-        if (!stepForm.reportValidity()) return;
         saveForm(stepForm);
         location.href = link.getAttribute('href');
       });
@@ -78,8 +102,8 @@
   }
 
   function projectText(project) {
-    const blocks = ['XXboard 项目评估表', `项目需求表单号：${project.id || '待生成'}`];
-    ['schematic','pcb','software'].forEach(function (step) {
+    const blocks = ['XXboard 项目评估表', `项目编号：${project.id || '待生成'}`];
+    ['overview','schematic','pcb','software'].forEach(function (step) {
       if (!project[step]) return;
       blocks.push(`\n【${labels[step]}】`);
       Object.entries(project[step]).forEach(function ([key, value]) { blocks.push(`${key}：${value}`); });
@@ -102,7 +126,7 @@
     }
     const projectIdNode = document.querySelector('[data-project-id]');
     if (projectIdNode) projectIdNode.textContent = project.id;
-    const steps = ['schematic','pcb','software'].filter(function (step) { return project[step]; });
+    const steps = ['overview','schematic','pcb','software'].filter(function (step) { return project[step]; });
     const empty = document.querySelector('[data-empty-state]');
     const status = document.querySelector('[data-summary-status]');
     if (!steps.length) {
@@ -110,13 +134,16 @@
       summaryRoot.hidden = true;
       status.textContent = '尚未保存任何项目内容';
     } else {
-      status.textContent = `已完成 ${steps.length} / 3 个项目步骤`;
+      status.textContent = `已保存 ${steps.length} 项需求内容`;
       steps.forEach(function (step) {
         const section = document.createElement('section');
         section.className = 'summary-card';
         const heading = document.createElement('div');
-        heading.className = 'summary-card-head';
-        heading.innerHTML = `<h2>${labels[step]}</h2><a href="${editLinks[step]}">修改</a>`;
+        heading.className = `summary-card-head${step === 'overview' ? ' overview-head' : ''}`;
+        const actions = `<span class="summary-card-actions"><a href="${editLinks[step]}">修改</a><button type="button" data-delete-step="${step}">删除</button></span>`;
+        heading.innerHTML = step === 'overview'
+          ? `<h2>${labels[step]}</h2><span class="summary-project-id">项目编号：${project.id}</span>${actions}`
+          : `<h2>${labels[step]}</h2>${actions}`;
         section.appendChild(heading);
         const list = document.createElement('dl');
         Object.entries(project[step]).forEach(function ([key, value]) {
@@ -126,6 +153,13 @@
         });
         section.appendChild(list);
         summaryRoot.appendChild(section);
+        heading.querySelector('[data-delete-step]').addEventListener('click', function () {
+          if (!confirm(`确定删除“${labels[step]}”吗？其他项目内容不会受到影响。`)) return;
+          delete project[step];
+          project.updatedAt = new Date().toISOString();
+          writeProject(project);
+          location.reload();
+        });
       });
     }
     document.querySelector('[data-copy-summary]').addEventListener('click', async function () {
@@ -153,16 +187,40 @@
       writeProject(project);
       return true;
     }
-    contactForm.addEventListener('submit', function (event) {
+    contactForm.addEventListener('submit', async function (event) {
       event.preventDefault();
       if (!saveContact()) return;
       const button = contactForm.querySelector('button[type="submit"]');
-      button.textContent = '项目评估表已完成';
-      button.classList.add('completed');
-    });
-    document.querySelector('[data-email-summary]').addEventListener('click', function () {
-      if (!saveContact()) return;
-      location.href = `mailto:contact@xxboard.com?subject=${encodeURIComponent('XXboard 新项目需求')}&body=${encodeURIComponent(projectText(project))}`;
+      button.disabled = true;
+      button.textContent = '正在提交……';
+      const isChinesePage = document.documentElement.lang.toLowerCase().startsWith('zh');
+      const recipient = isChinesePage ? 'TUZHIQUAN@126.COM' : 'IWTFNSC@GMAIL.COM';
+      const submission = new FormData();
+      submission.append('_subject', `${isChinesePage ? 'XXboard 新项目需求' : 'XXboard New Project Request'} ${project.id}`);
+      submission.append('_template', 'table');
+      submission.append('_captcha', 'false');
+      submission.append('项目编号', project.id);
+      Object.entries(project.contact).forEach(function ([key, value]) {
+        if (value) submission.append(key, value);
+      });
+      submission.append('项目需求', projectText(project));
+      try {
+        const response = await fetch(`https://formsubmit.co/ajax/${recipient}`, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: submission
+        });
+        const result = await response.json().catch(function () { return {}; });
+        const accepted = result.success === true || result.success === 'true';
+        if (!response.ok || !accepted) throw new Error(result.message || '第三方服务未确认接收');
+        contactError.textContent = '';
+        button.textContent = '项目评估表已完成';
+        button.classList.add('completed');
+      } catch (error) {
+        contactError.textContent = `暂时未能完成提交：${error.message}。填写内容已保存在本机。`;
+        button.disabled = false;
+        button.textContent = '完成项目评估表';
+      }
     });
     document.querySelector('[data-clear-project]').addEventListener('click', function () {
       if (confirm('确定清空本机保存的项目内容吗？')) { localStorage.removeItem(storageKey); location.reload(); }

@@ -7,17 +7,16 @@
   <meta name="description" content="XXboard 提供 MCU 固件、原理图、PCB、样机调试、物联网与量产支持，从需求梳理到可生产方案。">
   <link rel="canonical" href="https://xxboard.com/">
   <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="service-pages.css">
+  <style>.home-page .hero{min-height:calc(100vh - 76px)}@media(max-width:850px){.home-page .hero{min-height:calc(100vh - 66px)}}</style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRTC5GF8GT"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-TRTC5GF8GT');</script>
 </head>
-<body>
+<body class="home-page">
   <header class="site-header">
     <a class="brand" href="#top" aria-label="XXboard 首页"><span>XX</span>board</a>
     <nav aria-label="主导航">
-      <a href="software.html">软件开发</a>
-      <a href="hardware.html">硬件设计</a>
-      <a href="#process">合作流程</a>
-      <a class="nav-cta" href="#brief">提交需求</a>
+      <a href="mailto:contact@xxboard.com">contact@xxboard.com</a>
+      <a class="nav-cta" href="boss-intake.html">描述项目</a>
     </nav>
   </header>
 
@@ -28,7 +27,7 @@
         <h1>把产品想法，做成<br><em>可以量产的硬件。</em></h1>
         <p class="hero-lead">从 MCU 选型、固件与电路设计，到 PCB、样机调试和小批量生产。XXboard 为新产品、设备升级和疑难项目提供完整开发方案。</p>
         <div class="hero-actions">
-          <a class="button primary" href="#brief">描述你的项目</a>
+          <a class="button primary" href="boss-intake.html">描述你的项目</a>
           <a class="button secondary" href="mailto:contact@xxboard.com">contact@xxboard.com</a>
         </div>
         <ul class="trust-list" aria-label="服务特点">
@@ -44,56 +43,6 @@
       </div>
     </section>
 
-    <section class="ticker" aria-label="支持平台">
-      <div>STM32 <span>•</span> ESP32 <span>•</span> GD32 <span>•</span> NXP <span>•</span> Nordic <span>•</span> RP2040 <span>•</span> RISC-V <span>•</span> Linux SBC</div>
-    </section>
-
-    <section class="section-shell section-block" id="services">
-      <div class="section-heading"><p class="eyebrow">WHAT WE BUILD</p><h2>从一个问题，到一套完整方案</h2><p>可以承接完整产品，也可以只解决其中一个技术环节。</p></div>
-      <div class="service-grid">
-        <article><span>01</span><h3>MCU 与固件开发</h3><p>已有硬件的软件开发，或全新硬件从零开始的软件架构、驱动和应用开发。</p><a class="card-link" href="software.html">进入软件开发页面 →</a><b>STM32 / ESP32 / GD32 / NXP</b></article>
-        <article><span>02</span><h3>原理图与 PCB 设计</h3><p>原理图方案、器件选型，以及只画板或摆位加画板的 PCB Layout 服务。</p><a class="card-link" href="hardware.html">进入硬件设计页面 →</a><b>原理图 / Placement / Routing</b></article>
-        <article><span>03</span><h3>物联网与通信</h3><p>Wi-Fi、BLE、4G、LoRa、RS485、CAN、USB、以太网及 MQTT 等协议接入。</p><b>设备端 / 网关 / 云端接口</b></article>
-        <article><span>04</span><h3>样机与量产支持</h3><p>打样、焊接、Bring-up、测试工装、故障定位、小批量试产和量产问题闭环。</p><b>Prototype → Production</b></article>
-      </div>
-    </section>
-
-    <section class="dark-section" id="process">
-      <div class="section-shell section-block">
-        <div class="section-heading light"><p class="eyebrow">HOW WE WORK</p><h2>每一步都有明确输出</h2></div>
-        <ol class="process-list">
-          <li><span>01</span><div><h3>需求与可行性</h3><p>明确功能、接口、尺寸、成本、认证和时间目标，识别项目风险。</p></div></li>
-          <li><span>02</span><div><h3>方案与报价</h3><p>给出系统架构、器件平台、开发范围、里程碑和交付清单。</p></div></li>
-          <li><span>03</span><div><h3>开发与验证</h3><p>软硬件同步推进，按阶段提供可检查成果和测试记录。</p></div></li>
-          <li><span>04</span><div><h3>交付与生产</h3><p>交付源文件、固件和生产资料，并支持试产与后续迭代。</p></div></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section-shell section-block" id="capabilities">
-      <div class="section-heading"><p class="eyebrow">CAPABILITIES</p><h2>适合这些项目</h2></div>
-      <div class="capability-cloud">
-        <span>工业控制器</span><span>传感器采集</span><span>智能家居</span><span>电机控制</span><span>电池与电源</span><span>仪器仪表</span><span>USB 设备</span><span>无线终端</span><span>数据采集器</span><span>网关设备</span><span>现有产品升级</span><span>疑难故障排查</span>
-      </div>
-    </section>
-
-    <section class="brief-section" id="brief">
-      <div class="section-shell brief-layout">
-        <div>
-          <p class="eyebrow">START A PROJECT</p>
-          <h2>告诉我们，你想做什么</h2>
-          <p>信息不必完整。先说清应用场景、主要功能和目前进度，我们会从工程角度帮你整理下一步。</p>
-          <div class="contact-note"><span>直接联系</span><a href="mailto:contact@xxboard.com">contact@xxboard.com</a><small>通常在 1–2 个工作日内回复</small></div>
-        </div>
-        <div class="intake-choices">
-          <a href="software.html"><span>01 / SOFTWARE</span><h3>软件开发需求</h3><p>已有硬件只开发软件，或新硬件从零开发完整软件。</p><b>填写软件需求 →</b></a>
-          <a href="hardware.html"><span>02 / HARDWARE</span><h3>硬件设计需求</h3><p>原理图、器件选型、只画板，或摆位加画板。</p><b>填写硬件需求 →</b></a>
-        </div>
-      </div>
-    </section>
   </main>
-
-  <footer><a class="brand" href="#top"><span>XX</span>board</a><p>MCU, embedded systems and electronic hardware development.</p><p>© 2026 XXboard</p></footer>
-  <script src="project-intake.js"></script>
 </body>
 </html>
