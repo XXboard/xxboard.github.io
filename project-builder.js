@@ -2,8 +2,8 @@
   const storageKey = 'xxboard-project-v1';
   const isEnglishPage = document.documentElement.lang.toLowerCase().startsWith('en');
   const labels = isEnglishPage
-    ? {overview:'Product Requirements', schematic:'Schematic Design', pcb:'PCB Design', software:'Firmware Development'}
-    : {overview:'产品需求说明', schematic:'原理图设计', pcb:'PCB 设计', software:'软件开发'};
+    ? {overview:'Product Requirements', schematic:'Detailed Hardware · Schematic', pcb:'Detailed Hardware · PCB', software:'Detailed Software'}
+    : {overview:'产品需求说明', schematic:'详细硬件描述 · 原理图', pcb:'详细硬件描述 · PCB', software:'详细软件描述'};
   const editLinks = isEnglishPage
     ? {overview:'project.html', schematic:'../schematic-design.html', pcb:'../pcb-design.html', software:'../software.html'}
     : {overview:'boss-intake.html', schematic:'schematic-design.html', pcb:'pcb-design.html', software:'software.html'};
@@ -129,10 +129,13 @@
     const blocks = isEnglishPage
       ? ['XXboard Project Evaluation', `Project ID: ${project.id || 'Pending'}`]
       : ['XXboard 项目评估表', `项目编号：${project.id || '待生成'}`];
+    const seenAnswers = {signatures:new Set(), longValues:new Set()};
     ['overview','schematic','pcb','software'].forEach(function (step) {
       if (!project[step]) return;
+      const answers = uniqueAnswers(project[step], seenAnswers);
+      if (!answers.length) return;
       blocks.push(`\n【${labels[step]}】`);
-      Object.entries(project[step]).forEach(function ([key, value]) { blocks.push(`${key}：${value}`); });
+      answers.forEach(function ([key, value]) { blocks.push(`${key}：${value}`); });
     });
     if (project.contact) {
       blocks.push(isEnglishPage ? '\n【Contact】' : '\n【联系方式】');
@@ -141,6 +144,22 @@
       });
     }
     return blocks.join('\n');
+  }
+
+  function normalizedAnswer(value) {
+    return String(value).toLowerCase().replace(/[\s，。；、,.!！?？:：;\-_]/g, '');
+  }
+
+  function uniqueAnswers(section, seenAnswers) {
+    return Object.entries(section).filter(function ([key, value]) {
+      const normalized = normalizedAnswer(value);
+      const signature = `${normalizedAnswer(key)}:${normalized}`;
+      const repeated = seenAnswers.signatures.has(signature) || (normalized.length >= 12 && seenAnswers.longValues.has(normalized));
+      if (!normalized || repeated) return false;
+      seenAnswers.signatures.add(signature);
+      if (normalized.length >= 12) seenAnswers.longValues.add(normalized);
+      return true;
+    });
   }
 
   const summaryRoot = document.querySelector('[data-project-summary]');
@@ -167,7 +186,21 @@
       status.textContent = isEnglishPage ? 'No project information has been saved' : '尚未保存任何项目内容';
     } else {
       status.textContent = isEnglishPage ? `${steps.length} requirement section(s) saved` : `已保存 ${steps.length} 项需求内容`;
+      const seenAnswers = {signatures:new Set(), longValues:new Set()};
+      let lastGroup = '';
       steps.forEach(function (step) {
+        const answers = uniqueAnswers(project[step], seenAnswers);
+        if (!answers.length) return;
+        const group = step === 'overview' ? 'overview' : (step === 'software' ? 'software' : 'hardware');
+        if (group !== 'overview' && group !== lastGroup) {
+          const groupHeading = document.createElement('h2');
+          groupHeading.className = 'summary-detail-heading';
+          groupHeading.textContent = group === 'hardware'
+            ? (isEnglishPage ? 'Detailed hardware description' : '详细硬件描述')
+            : (isEnglishPage ? 'Detailed software description' : '详细软件描述');
+          summaryRoot.appendChild(groupHeading);
+        }
+        lastGroup = group;
         const section = document.createElement('section');
         section.className = 'summary-card';
         const heading = document.createElement('div');
@@ -178,7 +211,7 @@
           : `<h2>${labels[step]}</h2>${actions}`;
         section.appendChild(heading);
         const list = document.createElement('dl');
-        Object.entries(project[step]).forEach(function ([key, value]) {
+        answers.forEach(function ([key, value]) {
           const dt = document.createElement('dt'); dt.textContent = key;
           const dd = document.createElement('dd'); dd.textContent = value;
           list.append(dt, dd);
